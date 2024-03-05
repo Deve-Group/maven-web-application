@@ -19,13 +19,11 @@ sh "${MavenHome}/bin/mvn clean package"
 stage ('Artifacterthecode'){
 sh "${MavenHome}/bin/mvn sonar:sonar"
 }
-
 stage('artifactertoartifacter'){
 sh "${MavenHome}/bin/mvn sonar:sonar deploy"
 }
 stage('DeployToContainer'){
 deploy adapters: [tomcat9(credentialsId: 'd988a737-1464-40fa-ba33-5bb9e0b79ae2', path: '', url: 'http://172.16.142.165:8080/')], contextPath: null, war: '**/maven-web-application.war'
-}
 }
 */
 
