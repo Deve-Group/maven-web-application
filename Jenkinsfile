@@ -1,10 +1,10 @@
 node{
 
+def MavenHome = tool name: "Maven 3.9.6"
+  
 echo "Buil Number: ${env.BUILD_NUMBER}"
 echo "Jon name is: ${env.JOB_NAME}"
 echo "Node name is: ${env.NODE_NAME}"
-
-def MavenHome = tool name: "Maven 3.9.6"
 
 properties([buildDiscarder(logRotator(artifactDaysToKeepStr: '5', artifactNumToKeepStr: '5', daysToKeepStr: '', numToKeepStr: '5')), pipelineTriggers([pollSCM('* * * * *')])])
 
