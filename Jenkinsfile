@@ -1,7 +1,7 @@
 node{
 
 echo "Buil Number: ${env.BUILD_NUMBER}"
-echo "Jon name is: ${env.JOB_NAME}"
+//echo "Jon name is: ${env.JOB_NAME}"
 echo "Node name is: ${env.NODE_NAME}"
 
 def MavenHome = tool name: "Maven 3.9.6"
