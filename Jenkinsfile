@@ -4,10 +4,10 @@ properties([buildDiscarder(logRotator(artifactDaysToKeepStr: '5', artifactNumToK
 
 def MavenHome = tool name: "Maven 3.9.6"
 
-echo "The Job name is: ${JOB_NAME} " 
-echo "The Node name is:  ${NODE_NAME}"
-echo "The Build Number is:  ${BUILD_NUMBER}"
-//echo "Jenkins Home path is: ${JENKINS_HOME}"
+echo "The Job name is: ${env.JOB_NAME} " 
+echo "The Node name is:  ${env.NODE_NAME}"
+echo "The Build Number is:  ${env.BUILD_NUMBER}"
+//echo "Jenkins Home path is: ${env.JENKINS_HOME}"
 
 try{
 stage('CheckoutCode'){
