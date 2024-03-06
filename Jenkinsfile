@@ -24,7 +24,7 @@ stage('DiployCode'){
 sh "${MavenHome}/bin/mvn sonar:sonar deploy"
 }
 
-*/
+}
 }//try closing
 catch (e) {
     // If there was an exception thrown, the build failed
