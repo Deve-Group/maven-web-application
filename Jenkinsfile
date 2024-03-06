@@ -1,13 +1,13 @@
 node{
-    
+
 properties([buildDiscarder(logRotator(artifactDaysToKeepStr: '5', artifactNumToKeepStr: '5', daysToKeepStr: '', numToKeepStr: '5')), pipelineTriggers([pollSCM('* * * * *')])])
 
 def MavenHome = tool name: "Maven 3.9.6"
 
-echo "The Job name is: ${env.JOB_NAME} " 
-echo "The Node name is:  ${env.NODE_NAME}"
-echo "The Build Number is:  ${env.BUILD_NUMBER}"
-//echo "Jenkins Home path is: ${env.JENKINS_HOME}"
+echo "The Job name is: ${JOB_NAME} " 
+echo "The Node name is:  ${NODE_NAME}"
+echo "The Build Number is:  ${BUILD_NUMBER}"
+echo "Jenkins Home path is: ${JENKINS_HOME}" 
 
 
 stage('CheckoutCode'){
@@ -15,6 +15,7 @@ git credentialsId: '1d892077-c906-4800-aeca-573f4652fa84', url: 'https://github.
 }
 stage('BuildTheCode'){
 sh "${MavenHome}/bin/mvn clean package"
+}
 }
 /*
 stage('BuildToSonarQube'){
@@ -24,4 +25,6 @@ stage('DiployCode'){
 sh "${MavenHome}/bin/mvn sonar:sonar deploy"
 }
 
-}
+*/
+
+}//node closing
